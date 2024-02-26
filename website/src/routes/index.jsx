@@ -5,12 +5,13 @@ import About from '../pages/About';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import NotFound from '../pages/NotFound';
+import Event from '../pages/Event';
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
+      <Route path="/event" element={<Event />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="*" element={<Navigate to="/404" />} />

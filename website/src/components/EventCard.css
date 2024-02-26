@@ -1,0 +1,131 @@
+.event-card {
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #ddd;
+	margin-bottom: 20px;
+	padding: 15px;
+}
+
+.event-card-header {
+	display: flex;
+	align-items: center;
+	padding: 0 0 7px 3px;
+}
+  
+.event-avatar {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin-right: 15px;
+}
+  
+.event-avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.event-card-images-container {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.event-card-images-container img {
+	width: 500px;
+}
+
+.event-card-bar {
+	display: flex;
+}
+
+.event-card-summary {
+	width: 80%;
+}
+
+.event-card-buttons {
+	width: 20%;
+	display: flex;
+	justify-content: end;
+}
+
+.star-icon, .more-icon {
+	cursor: pointer;
+	height: 24px;
+}
+
+.event-label {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-weight: bold;
+	background-color: var(--color-primary);
+	color: var(--color-text-clear);
+}
+
+.event-button {
+	padding: 5px 10px;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.event-button:hover {
+  background-color: #ddd; /* Cor de fundo ao passar o mouse */
+}
+
+.event-button.starred {
+  background-color: gold; /* Cor de fundo quando a estrela está marcada */
+  color: #333; /* Cor do texto quando a estrela está marcada */
+}
+
+.event-info {
+	flex-grow: 1;
+	margin-top: 5px;
+}
+
+.event-info-icon {
+	height: 22px;
+}
+
+.event-info-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 5px;
+}
+
+.event-info-col {
+	display: flex;
+	align-items: center;
+	width: 50%;
+}
+
+.event-info-line {
+	display: flex;
+	padding: 5px;
+}
+
+.event-data {
+	padding-left: 5px;
+}
+  
+@media (max-width: 900px) {
+	.event-card {
+		width: calc(100% - 30px);
+	}
+
+	.event-avatar {
+		width: 32px;
+		height: 32px;
+	}
+
+	.event-card-images-container {
+		margin-bottom: 5px;
+	}
+}
+  

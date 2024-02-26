@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 import logo from '../assets/images/logo.png';
 import userIcon from '../assets/images/user.png';
@@ -67,7 +68,9 @@ const Header = () => {
   return (
     <div className={`header ${isVisible ? 'visible' : 'hidden'}`}>
 			<div className='header-body'>
-				<img src={logo} alt='Logo Conexão Pet' className='logo' />
+				<Link to="/">
+          <img src={logo} alt='Logo Conexão Pet' className='logo' />
+        </Link>
 
 				<div className='menu-options-container'>
 					<div className='search-icon-container' onClick={openSearchModal}>

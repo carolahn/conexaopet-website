@@ -1,23 +1,3 @@
-// MockSquareCarouselData.js
-
-// const mockCarouselData = [
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-//     'https://via.placeholder.com/300',
-    
-//   ];
-  
-//   export default mockCarouselData;
-
 const mockCarouselData = [
     {
 			imagem: 'https://via.placeholder.com/300',
