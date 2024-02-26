@@ -1,0 +1,131 @@
+.pet-card {
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #ddd;
+	margin-bottom: 20px;
+	padding: 15px;
+}
+
+.pet-card-header {
+	display: flex;
+	align-items: center;
+	padding: 0 0 7px 3px;
+}
+  
+.pet-avatar {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin-right: 15px;
+}
+  
+.pet-avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.pet-card-images-container {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.pet-card-images-container img {
+	width: 500px;
+}
+
+.pet-card-bar {
+	display: flex;
+}
+
+.pet-card-summary {
+	width: 80%;
+}
+
+.pet-card-buttons {
+	width: 20%;
+	display: flex;
+	justify-content: end;
+}
+
+.star-icon, .more-icon {
+	cursor: pointer;
+	height: 24px;
+}
+
+.pet-label {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-weight: bold;
+	background-color: var(--color-primary);
+	color: var(--color-text-clear);
+}
+
+.pet-button {
+	padding: 5px 10px;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.pet-button:hover {
+  background-color: #ddd; /* Cor de fundo ao passar o mouse */
+}
+
+.pet-button.starred {
+  background-color: gold; /* Cor de fundo quando a estrela está marcada */
+  color: #333; /* Cor do texto quando a estrela está marcada */
+}
+
+.pet-info {
+	flex-grow: 1;
+	margin-top: 5px;
+}
+
+.pet-info-icon {
+	height: 22px;
+}
+
+.pet-info-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 5px;
+}
+
+.pet-info-col {
+	display: flex;
+	align-items: center;
+	width: 50%;
+}
+
+.pet-info-line {
+	display: flex;
+	padding: 5px;
+}
+
+.pet-data {
+	padding-left: 5px;
+}
+  
+@media (max-width: 900px) {
+	.pet-card {
+		width: calc(100% - 30px);
+	}
+
+	.pet-avatar {
+		width: 32px;
+		height: 32px;
+	}
+
+	.pet-card-images-container {
+		margin-bottom: 5px;
+	}
+}
+  

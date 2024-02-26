@@ -1,0 +1,16 @@
+.home-container {
+	width: 100%;
+	margin-top: 70px;
+}
+
+.home-body {
+	max-width: 900px;
+	margin: 0 auto;
+	height: 100vh;
+}
+
+@media (max-width: 900px) {
+	.home-container {
+		margin-top: 50px;
+	}
+}
