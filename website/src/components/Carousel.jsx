@@ -71,6 +71,14 @@ const Carousel = ({ events }) => {
 
   const isAtBeginning = currentIndex === 0;
 
+	const scrollToEvent = (eventId) => {
+		console.log('scroll');
+    const element = document.getElementById(eventId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
     	{width >= 900 ? (
@@ -78,7 +86,11 @@ const Carousel = ({ events }) => {
 					<div className="carousel-content" style={{ transform: `translateX(-${currentIndex * height * 0.22}px)` }}>
 						{eventList?.map((event, index) => (
 							<div key={index} className="carousel-item" style={{ height: `${height * 0.2}px`, marginRight: `${height * 0.02}px`, paddingBottom: '1.5rem' }}>
-								<img src={event.imagens[0]} alt={`event ${index + 1}`} style={{ height: '100%', objectFit: 'cover' }} />
+								<img 
+									src={event.imagens[0]} alt={`event ${index + 1}`} 
+									style={{ height: '100%', objectFit: 'cover' }} 
+									onClick={() => scrollToEvent(`event-${event.id}`)}
+								/>
 								<p>{formatarData(event.dataHoraInicio)}</p>
 							</div>
 						))}
@@ -92,7 +104,11 @@ const Carousel = ({ events }) => {
 					<div className="carousel-content" style={{ transform: `translateX(-${currentIndex * height * 0.22}px)` }}>
 						{eventList?.map((event, index) => (
 							<div key={index} className="carousel-item" style={{ height: `${height * 0.2}px`, marginRight: `${height * 0.02}px`, paddingBottom: '1.5rem' }}>
-								<img src={event.imagens[0]} alt={`event ${index + 1}`} style={{ height: '100%', objectFit: 'cover' }} />
+								<img 
+									src={event.imagens[0]} alt={`event ${index + 1}`} 
+									style={{ height: '100%', objectFit: 'cover' }} 
+									onClick={() => scrollToEvent(`event-${event.id}`)}
+								/>
 								<p>{formatarData(event.dataHoraInicio)}</p>
 							</div>
 						))}

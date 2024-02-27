@@ -23,6 +23,7 @@ const EventCard = ({
   dataHoraFim,
   local,
   descricao,
+	id,
 }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [starIconSrc, setStarIconSrc] = useState(starIcon);
@@ -80,7 +81,7 @@ const EventCard = ({
 
 
   return (
-    <div className="event-card">
+    <div className="event-card" id={id}>
 			<div className='event-card-header'>
 				<div className='event-avatar'>
 					<img src={protetor.imagem} alt={`Avatar de ${protetor.nickname}`} />

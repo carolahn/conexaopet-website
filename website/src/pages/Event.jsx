@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from '../components/Carousel';
-import mockCarouselData from '../components/mockCarouselData';
 import mockEventCardData from '../components/mockEventCardData';
 import './Home.css';
 import Header from '../components/Header';
