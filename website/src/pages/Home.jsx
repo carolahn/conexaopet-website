@@ -2,12 +2,12 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setLoggedIn } from '../redux/actions';
 import Carousel from '../components/Carousel';
-import mockCarouselData from '../components/mockCarouselData';
-import mockPetCardData from '../components/mockPetCardData';
 import './Home.css';
 import Header from '../components/Header';
 import PetCardList from '../components/PetCardList';
 import InfiniteScroll from '../components/InfiniteScroll';
+import mockPetCardData from '../components/mockPetCardData';
+import mockEventCardData from '../components/mockEventCardData';
 
 const Home = () => {
 	
@@ -23,7 +23,7 @@ const Home = () => {
     <div className='home-container'>
 			<div className='home-body'>
 				<Header/>
-				<Carousel events={mockCarouselData}/>
+				<Carousel events={mockEventCardData}/>
 				{/* <button onClick={handleLogout}>Logout</button> */}
 				<InfiniteScroll itemList={mockPetCardData}>
 					{({ itemList, isLoading }) => (
