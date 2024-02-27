@@ -23,13 +23,14 @@
 
 .carousel-button {
   position: absolute;
-  top: 50%;
+  top: calc((100% - 1em)/2);
   transform: translateY(-50%);
   background: transparent;
   border: none;
   font-size: 24px;
   color: white;
   cursor: pointer;
+  height: calc(100% - 1rem);
 }
 
 .left {
@@ -41,14 +42,10 @@
 }
 
 .carousel-button:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.03);
 }
 
 .carousel-content {
   display: flex;
   width: 100%;
 }
-
-/* .react-swipeable-view-container {
-  height: 100px;
-} */

@@ -13,7 +13,7 @@ const Event = () => {
     <div className='home-container'>
 			<div className='home-body'>
 				<Header/>
-				<Carousel stories={mockCarouselData}/>
+				<Carousel events={mockCarouselData}/>
 				<InfiniteScroll itemList={mockEventCardData}>
 					{({ itemList, isLoading }) => (
 						<EventCardList eventList={itemList} />

@@ -23,7 +23,7 @@ const Home = () => {
     <div className='home-container'>
 			<div className='home-body'>
 				<Header/>
-				<Carousel stories={mockCarouselData}/>
+				<Carousel events={mockCarouselData}/>
 				{/* <button onClick={handleLogout}>Logout</button> */}
 				<InfiniteScroll itemList={mockPetCardData}>
 					{({ itemList, isLoading }) => (

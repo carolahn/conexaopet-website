@@ -113,7 +113,56 @@
 .event-data {
 	padding-left: 5px;
 }
-  
+
+.event-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.event-carousel-content {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.active {
+  opacity: 1;
+}
+
+.event-carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.event-carousel-button:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.event-carousel-button.mobile:hover {
+  background-color: transparent;
+}
+
+.event-carousel-button.left {
+  left: 0;
+  justify-content: start;
+}
+
+.event-carousel-button.right {
+  right: 0;
+  justify-content: end;
+}
+
 @media (max-width: 900px) {
 	.event-card {
 		width: calc(100% - 30px);

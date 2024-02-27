@@ -1,5 +1,6 @@
 const mockEventCardData = [
   {
+    id: 1,
     protetor: {
       imagem: 'https://via.placeholder.com/200',
       nickname: 'protetorpaulo',
@@ -13,6 +14,7 @@ const mockEventCardData = [
     ],
     animais: [
       {
+        id: 1,
         nome: 'Fido',
         cidade: 'Curitiba',
         imagens: [
@@ -32,6 +34,7 @@ const mockEventCardData = [
         descricao: 'Fido é um cachorro adorável em busca de um lar. Ele adora brincar e está pronto para ser o seu melhor amigo!',
       },
       {
+        id: 2,
         nome: 'Luna',
         cidade: 'Curitiba',
         imagens: [
@@ -65,6 +68,7 @@ const mockEventCardData = [
   },
 
   {
+    id: 2,
     protetor: {
       imagem: 'https://via.placeholder.com/200',
       nickname: 'protetorjoana',
@@ -78,6 +82,7 @@ const mockEventCardData = [
     ],
     animais: [
       {
+        id: 3,
         nome: 'Bolt',
         cidade: 'Curitiba',
         imagens: [
@@ -97,6 +102,7 @@ const mockEventCardData = [
         descricao: 'Bolt é um labrador cheio de energia em busca de um lar ativo. Ele adora brincar de buscar a bolinha e está pronto para ser seu parceiro de aventuras!',
       },
       {
+        id: 4,
         nome: 'Mia',
         cidade: 'Curitiba',
         imagens: [
@@ -129,6 +135,7 @@ const mockEventCardData = [
     descricao: 'Adoção responsável! Venha conhecer os animais que estão em busca de um novo lar no Pet Shop Patinhas Felizes.',
   },
 	{
+    id: 3,
     protetor: {
       imagem: 'https://via.placeholder.com/200',
       nickname: 'protetorpaulo',
@@ -142,6 +149,7 @@ const mockEventCardData = [
     ],
     animais: [
       {
+        id: 5,
         nome: 'Fido',
         cidade: 'Curitiba',
         imagens: [
@@ -161,6 +169,7 @@ const mockEventCardData = [
         descricao: 'Fido é um cachorro adorável em busca de um lar. Ele adora brincar e está pronto para ser o seu melhor amigo!',
       },
       {
+        id: 6,
         nome: 'Luna',
         cidade: 'Curitiba',
         imagens: [
@@ -194,6 +203,7 @@ const mockEventCardData = [
   },
 
   {
+    id: 4,
     protetor: {
       imagem: 'https://via.placeholder.com/200',
       nickname: 'protetorjoana',
@@ -207,6 +217,7 @@ const mockEventCardData = [
     ],
     animais: [
       {
+        id: 7,
         nome: 'Bolt',
         cidade: 'Curitiba',
         imagens: [
@@ -226,6 +237,7 @@ const mockEventCardData = [
         descricao: 'Bolt é um labrador cheio de energia em busca de um lar ativo. Ele adora brincar de buscar a bolinha e está pronto para ser seu parceiro de aventuras!',
       },
       {
+        id: 8,
         nome: 'Mia',
         cidade: 'Curitiba',
         imagens: [
@@ -258,6 +270,7 @@ const mockEventCardData = [
     descricao: 'Adoção responsável! Venha conhecer os animais que estão em busca de um novo lar no Pet Shop Patinhas Felizes.',
   },
 	{
+    id: 5,
     protetor: {
       imagem: 'https://via.placeholder.com/200',
       nickname: 'protetorpaulo',
@@ -271,6 +284,7 @@ const mockEventCardData = [
     ],
     animais: [
       {
+        id: 9,
         nome: 'Fido',
         cidade: 'Curitiba',
         imagens: [
@@ -290,6 +304,7 @@ const mockEventCardData = [
         descricao: 'Fido é um cachorro adorável em busca de um lar. Ele adora brincar e está pronto para ser o seu melhor amigo!',
       },
       {
+        id: 10,
         nome: 'Luna',
         cidade: 'Curitiba',
         imagens: [
@@ -323,6 +338,7 @@ const mockEventCardData = [
   },
 
   {
+    id: 6,
     protetor: {
       imagem: 'https://via.placeholder.com/200',
       nickname: 'protetorjoana',
@@ -336,6 +352,7 @@ const mockEventCardData = [
     ],
     animais: [
       {
+        id: 11,
         nome: 'Bolt',
         cidade: 'Curitiba',
         imagens: [
@@ -355,6 +372,7 @@ const mockEventCardData = [
         descricao: 'Bolt é um labrador cheio de energia em busca de um lar ativo. Ele adora brincar de buscar a bolinha e está pronto para ser seu parceiro de aventuras!',
       },
       {
+        id: 12,
         nome: 'Mia',
         cidade: 'Curitiba',
         imagens: [
@@ -387,6 +405,7 @@ const mockEventCardData = [
     descricao: 'Adoção responsável! Venha conhecer os animais que estão em busca de um novo lar no Pet Shop Patinhas Felizes.',
   },
 	{
+    id: 7,
     protetor: {
       imagem: 'https://via.placeholder.com/200',
       nickname: 'protetorpaulo',
@@ -400,6 +419,7 @@ const mockEventCardData = [
     ],
     animais: [
       {
+        id: 13,
         nome: 'Fido',
         cidade: 'Curitiba',
         imagens: [
@@ -419,6 +439,7 @@ const mockEventCardData = [
         descricao: 'Fido é um cachorro adorável em busca de um lar. Ele adora brincar e está pronto para ser o seu melhor amigo!',
       },
       {
+        id: 14,
         nome: 'Luna',
         cidade: 'Curitiba',
         imagens: [
@@ -452,6 +473,7 @@ const mockEventCardData = [
   },
 
   {
+    id: 8,
     protetor: {
       imagem: 'https://via.placeholder.com/200',
       nickname: 'protetorjoana',
@@ -465,6 +487,7 @@ const mockEventCardData = [
     ],
     animais: [
       {
+        id: 15,
         nome: 'Bolt',
         cidade: 'Curitiba',
         imagens: [
@@ -484,6 +507,7 @@ const mockEventCardData = [
         descricao: 'Bolt é um labrador cheio de energia em busca de um lar ativo. Ele adora brincar de buscar a bolinha e está pronto para ser seu parceiro de aventuras!',
       },
       {
+        id: 16,
         nome: 'Mia',
         cidade: 'Curitiba',
         imagens: [

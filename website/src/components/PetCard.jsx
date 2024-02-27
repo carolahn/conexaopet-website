@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import SwipeableViews from 'react-swipeable-views';
 import { useWindowSize } from '../hooks/useWindowSize';
 import './PetCard.css';  
 import starIcon from '../assets/images/star.png';
@@ -82,29 +81,29 @@ const PetCard = ({
 			<div className='pet-card-body'>
 				<div className='pet-card-images-container'>
 					{width >= 900 ? (
-						<div className="carousel" style={{ width: '500px' }}>
-							<div className="carousel-content" style={{ transform: `translateX(-${currentIndex * 500}px)` }}>
+						<div className="pet-carousel" style={{ width: '500px' }}>
+							<div className="pet-carousel-content" style={{ transform: `translateX(-${currentIndex * 500}px)` }}>
 								{imagens.map((imagem, index) => (
 									<div key={index} style={{ width: '500px' }}>
 										<img src={imagem} alt={`Foto de ${nome}`} className='pet-image'/>
 									</div>
 								))}
 							</div>
-							<button className="carousel-button left" onClick={prevSlide} disabled={isAtBeginning}>&#10094;</button>
-							<button className="carousel-button right" onClick={nextSlide} disabled={isAtEnd}>&#10095;</button>
+							<button className="pet-carousel-button left" onClick={prevSlide} disabled={isAtBeginning}>&#10094;</button>
+							<button className="pet-carousel-button right" onClick={nextSlide} disabled={isAtEnd}>&#10095;</button>
 						</div>
-					) : (
-						<div className="carousel" style={{ height: `${width - 30}px`, width: `${width - 30}px` }}>
-							<SwipeableViews index={currentIndex} onChangeIndex={handleChangeIndex}>
-								<div style={{ height: `${width - 30}px`, width: `${width - 30}px`, display: 'flex', paddingBottom: '1.5rem' }}>
-									{imagens.map((imagem, index) => (
-										<div key={index} className="carousel-item" style={{ height: `${width - 30}px`, width: `${width - 30}px`, paddingBottom: '1.5rem' }} >
-											<img src={imagem} alt={`Story ${index + 1}`} style={{ height: `${width - 30}px`, width: `${width - 30}px`, objectFit: 'cover' }} />
-										</div>
-									))}
 
-								</div>
-							</SwipeableViews>
+					) : (
+						<div className="pet-carousel" style={{ height: `${width - 30}px`, width: `${width - 30}px` }}>
+							<div className="pet-carousel-content" style={{ transform: `translateX(-${currentIndex * (width - 30)}px)` }}>
+								{imagens.map((imagem, index) => (
+									<div key={index} style={{ width: `${width - 30}px` }}>
+										<img src={imagem} alt={`Foto de ${nome}`} className='pet-image' style={{ height: `${width - 30}px`, width: `${width - 30}px`, objectFit: 'cover' }}/>
+									</div>
+								))}
+							</div>
+							<button className="pet-carousel-button left mobile" onClick={prevSlide} disabled={isAtBeginning}>&#10094;</button>
+							<button className="pet-carousel-button right mobile" onClick={nextSlide} disabled={isAtEnd}>&#10095;</button>
 						</div>
 					)}
 
