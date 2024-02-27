@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setLoggedIn } from '../redux/actions';
-import Carousel from '../components/Carousel';
+import CarouselHome from '../components/CarouselHome';
 import './Home.css';
 import Header from '../components/Header';
 import PetCardList from '../components/PetCardList';
@@ -23,7 +23,7 @@ const Home = () => {
     <div className='home-container'>
 			<div className='home-body'>
 				<Header/>
-				<Carousel events={mockEventCardData}/>
+				<CarouselHome events={mockEventCardData}/>
 				{/* <button onClick={handleLogout}>Logout</button> */}
 				<InfiniteScroll itemList={mockPetCardData}>
 					{({ itemList, isLoading }) => (
