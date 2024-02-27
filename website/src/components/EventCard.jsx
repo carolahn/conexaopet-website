@@ -37,7 +37,6 @@ const EventCard = ({
 
 	useEffect(() => {
 		updateCurrentAnimal();
-		console.log(currentIndex);
 	}, [currentIndex]);
 
   const handleFavoriteClick = () => {
@@ -74,7 +73,6 @@ const EventCard = ({
   const updateCurrentAnimal = () => {
     const currentImage = allImages[currentIndex];
     setCurrentAnimal(currentImage.animalId !== null ? animais.find(animal => animal.id === currentImage.animalId) : null);
-		console.log(currentIndex);
   };
 
 	const isAtBeginning = currentIndex === 0;
