@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import './Carousel.css';
 import { useWindowSize } from '../hooks/useWindowSize';
@@ -6,7 +6,17 @@ import { formatarData } from '../utils/formatarData';
 
 const Carousel = ({ events }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [width, height] = useWindowSize();
+	const [lastClick, setLastClick] = useState();
+  const [width, height] = useWindowSize(events?.length);
+
+
+	useEffect(() => {
+		if (width >= 900) {
+			const eventsShown = Math.floor(900 / (height * 0.22));
+			const numCanClick = events?.length - eventsShown;
+			setLastClick(numCanClick);
+		}
+	}, [currentIndex]);
 
 	const handleChangeIndex = (index) => {
 		setCurrentIndex(index);
@@ -22,7 +32,7 @@ const Carousel = ({ events }) => {
   };
 
   const isAtBeginning = currentIndex === 0;
-  const isAtEnd = currentIndex === events?.length - 1;
+  const isAtEnd = currentIndex === lastClick;
 
   return (
     <>
