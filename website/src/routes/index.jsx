@@ -6,6 +6,7 @@ import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import NotFound from '../pages/NotFound';
 import Event from '../pages/Event';
+import ProfileProtector from '../pages/ProfileProtector';
 
 const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
       <Route path="/event" element={<Event />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/protector/:id" element={<ProfileProtector/>} />
       <Route path="*" element={<Navigate to="/404" />} />
     </Routes>
   );

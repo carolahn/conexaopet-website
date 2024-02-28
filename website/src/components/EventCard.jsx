@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import SwipeableViews from 'react-swipeable-views';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { formatarData, formatarHora } from '../utils/formatarData';
 import './EventCard.css';  
