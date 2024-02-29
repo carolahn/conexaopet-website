@@ -1,0 +1,100 @@
+.protector-card {
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	/* border-bottom: 1px solid #ddd; */
+	/* margin-bottom: 20px; */
+	padding: 15px 15px 0 15px;
+  margin: 0 auto;
+}
+
+.protector-card-header {
+	display: flex;
+	align-items: center;
+	padding: 0 0 7px 3px;
+}
+  
+.protector-avatar {
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	border-radius: 50%;
+	margin-right: 15px;
+}
+  
+.protector-avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.protector-card-images-container {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.protector-card-images-container img {
+	width: 500px;
+}
+
+.protector-card-bar {
+	display: flex;
+}
+
+.protector-card-summary {
+	width: 80%;
+}
+
+.protector-card-buttons {
+	width: 20%;
+	display: flex;
+	justify-content: end;
+}
+
+.protector-buttons {
+  display: flex;
+}
+
+.protector-buttons .icon {
+  cursor: pointer;
+  height: 20px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.paw-icon, .calendar-icon, .plus-icon, .star-icon, .more-icon {
+	cursor: pointer;
+	height: 24px;
+}
+
+.protector-card-tabs {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.protector-card-tabs .paw-icon, .protector-card-tabs .calendar-icon  {
+  margin-right: 50px;
+}
+
+.protector-card-description {
+  white-space: pre-line;
+  margin-top: 3px;
+}
+
+@media (max-width: 900px) {
+	.protector-card {
+		width: calc(100% - 30px);
+	}
+
+	/* .protector-avatar {
+		width: 32px;
+		height: 32px;
+	} */
+
+	.protector-card-images-container {
+		margin-bottom: 5px;
+	}
+}
+  

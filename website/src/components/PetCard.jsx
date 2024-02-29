@@ -26,6 +26,7 @@ const PetCard = ({
   convivio,
   personalidade,
   descricao,
+	isOwner = false,
 }) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [starIconSrc, setStarIconSrc] = useState(starIcon);
@@ -81,7 +82,7 @@ const PetCard = ({
 			<div className='pet-card-body'>
 				<div className='pet-card-images-container'>
 					{width >= 900 ? (
-						<div className="pet-carousel" style={{ width: '500px' }}>
+						<div className="pet-carousel" style={{ maxWidth: '500px' }}>
 							<div className="pet-carousel-content" style={{ transform: `translateX(-${currentIndex * 500}px)` }}>
 								{imagens.map((imagem, index) => (
 									<div key={index} style={{ width: '500px' }}>

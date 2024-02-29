@@ -1,6 +1,8 @@
 :root {
   --color-primary: #435058;
-  --color-contrast: #DCF763;
+  --color-secondary: #848C8E;
+  --color-contrast: rgb(220, 247, 99);
+  --color-contrast-2: rgb(221, 245, 37);
   --color-detail: #F1F2EE;
   --color-text-dark: #000000;
   --color-text-clear: #FFFFFF;
