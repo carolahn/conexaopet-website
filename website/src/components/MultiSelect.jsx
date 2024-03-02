@@ -1,11 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const MultiSelect = ({ options, placeholder, attribute, onChange }) => {
+const MultiSelect = ({ options, placeholder, attribute, onChange, initialValues=[] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
   const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    if (initialValues) {
+      // Define os valores iniciais
+      setSelectedOptions(initialValues);
+    }
+  }, [initialValues]);
 
   const handleOptionChange = (id) => {
     setSelectedOptions((prevSelectedOptions) => {
@@ -50,7 +57,7 @@ const MultiSelect = ({ options, placeholder, attribute, onChange }) => {
   return (
     <div style={containerStyles}>
       <input
-      className="form-control"
+      
         type="text"
         placeholder={selectedOptions.length > 0 ? '' : placeholder}
         value={selectedOptions
@@ -100,12 +107,11 @@ const MultiSelect = ({ options, placeholder, attribute, onChange }) => {
 const containerStyles = {
   position: 'relative',
   display: 'inline-block',
-  width: 'calc(100% - 1.3em)',
+  width: '100%',
 };
 
 const inputStyles = {
-  width: '100%',
-  padding: '10px',
+  padding: '10px 12px',
 };
 
 const optionContainerStyles = {

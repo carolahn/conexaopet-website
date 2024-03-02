@@ -11,6 +11,13 @@ import cakeIcon from '../assets/images/cake.png';
 import weightIcon from '../assets/images/weight.png';
 import infoIcon from '../assets/images/info.png';
 import quoteIcon from '../assets/images/quote.png';
+import editIcon from '../assets/images/edit.png';
+import trashIcon from '../assets/images/trash.png';
+import DonationModal from './DonationModal';
+import DiscartModal from './DiscartModal';
+import NewPetForm from './NewPetForm';
+import { mockEditPetData } from './mockFormData';
+import NewPublicationModal from './NewPublicationModal';
 
 const PetCard = ({
   avatar,
@@ -33,6 +40,8 @@ const PetCard = ({
 	const [isMoreInfoVisible, setMoreInfoVisible] = useState(false);
 	const [currentIndex, setCurrentIndex] = useState(0);
   const [width, height] = useWindowSize();
+	const [isDiscartModalOpen, setIsDiscartModalOpen] = useState(false);
+	const [isNewPublicationModalOpen, setIsNewPublicationModalOpen] = useState(false);
 
 	useEffect(() => {
     // Atualizar o índice do slide para 0 ao redimensionar a janela
@@ -69,14 +78,42 @@ const PetCard = ({
 	const isAtBeginning = currentIndex === 0;
   const isAtEnd = currentIndex === imagens.length - 1;
 
+	const openDiscartModal = () => {
+    setIsDiscartModalOpen(!isDiscartModalOpen);
+  };
+
+	const closeDiscartModal = () => {
+    setIsDiscartModalOpen(false);
+  };
+
+	const openNewPublicationModal = () => {
+		setIsNewPublicationModalOpen(!isNewPublicationModalOpen);
+	};
+
+	const closeNewPublicationModal = () => {
+		setIsNewPublicationModalOpen(false);
+	};
+
 
   return (
     <div className="pet-card">
 			<div className='pet-card-header'>
-				<div className='pet-avatar'>
-					<img src={avatar} alt={`Avatar de ${nome}`} />
+				<div className='pet-header'>
+					<div className='pet-avatar'>
+						<img src={avatar} alt={`Avatar de ${nome}`} />
+					</div>
+					<h2>{protetor}</h2>
 				</div>
-				<h2>{protetor}</h2>
+				{isOwner && (
+					<div className='pet-options-container'>
+						<div className='icon-container' onClick={openNewPublicationModal}>
+							<img src={editIcon} alt='Buscar' className='edit-icon' />
+						</div>
+						<div className='icon-container' onClick={openDiscartModal}>
+							<img src={trashIcon} alt='Perfil' className='trash-icon' />
+						</div>
+					</div>
+				)}
 			</div>
 
 			<div className='pet-card-body'>
@@ -167,6 +204,9 @@ const PetCard = ({
           </div>
         )}
 			</div>
+
+			<NewPublicationModal isModalOpen={isNewPublicationModalOpen} closeModal={closeNewPublicationModal} initialValues={mockEditPetData} isNewPublication={false}/>
+			<DiscartModal isModalOpen={isDiscartModalOpen} closeModal={closeDiscartModal} publicationId={1} />
     </div>
   );
 };

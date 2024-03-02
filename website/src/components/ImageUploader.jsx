@@ -1,17 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import isEqual from 'lodash/isEqual';
 import { useWindowSize } from '../hooks/useWindowSize';
 import trashIcon from '../assets/images/trash.png'
 
-const ImageUploader = ({ label, onChange }) => {
+const ImageUploader = ({ label, onChange, initialValues=[] }) => {
   const [width, height] = useWindowSize();
   const [selectedImages, setSelectedImages] = useState([]);
   const [blobData, setBlobData] = useState([]);
   const [draggedIndex, setDraggedIndex] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
+  const prevBlobData = useRef(blobData);
+  const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
-    onChange(blobData);
+    const urls = selectedImages.map((image) => {
+      return image.blob
+        ? URL.createObjectURL(new Blob([image.blob], { type: image.type }))
+        : URL.createObjectURL(image);
+    });
+
+    setImageUrls(urls);
+  }, [selectedImages]);
+
+  useEffect(() => {
+    if (!isEqual(blobData, prevBlobData.current)) {
+      prevBlobData.current = blobData;
+      onChange(blobData);
+    }
   }, [blobData, onChange]);
+
+  useEffect(() => {
+    if (initialValues && initialValues.length > 0) {
+      const loadInitialImages = async () => {
+        const newImages = [];
+
+        for (const image of initialValues) {
+          if (typeof image === 'string') {
+            // Se for uma string, presume-se que é uma URL da imagem
+            const blob = await fetch(image).then((response) => response.blob());
+            const base64String = await convertBlobToBase64(blob);
+            newImages.push({ blob: base64String, type: blob.type });
+          } else if (image.blob && image.type) {
+            // Se já é um objeto com blob e type, não faz conversão
+            newImages.push(image);
+          }
+        }
+
+        console.log('Loaded initial images:', newImages);
+
+        setSelectedImages(newImages);
+        setBlobData(newImages);
+      };
+
+      loadInitialImages();
+    }
+  }, []);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -21,11 +64,6 @@ const ImageUploader = ({ label, onChange }) => {
     setIsHovered(false);
   };
 
-  // const handleImageSelection = (e) => {
-  //   const files = Array.from(e.target.files);
-  //   setSelectedImages((prevImages) => [...prevImages, ...files]);
-  // };
-
   const handleImageSelection = async (e) => {
     const files = Array.from(e.target.files);
     setSelectedImages((prevImages) => [...prevImages, ...files]);
@@ -34,10 +72,26 @@ const ImageUploader = ({ label, onChange }) => {
   
     for (const file of files) {
       const blob = await getBlobFromImageFile(file);
-      newImages.push({ blob, type: file.type });
-    }
+      
+      // Convertendo Blob para base64
+      const base64String = await convertBlobToBase64(blob);
   
+      newImages.push({ blob: base64String, type: file.type });
+      console.log('blob: ', base64String);
+    }
     setBlobData((prevBlobData) => [...prevBlobData, ...newImages]);
+  };
+
+  const convertBlobToBase64 = (blob) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        console.log('Base64:', reader.result.split(',')[1]);
+        resolve(reader.result.split(',')[1]);
+      }
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
   };
   
   const getBlobFromImageFile = (file) => {
@@ -120,6 +174,7 @@ const ImageUploader = ({ label, onChange }) => {
         onDragEnd={handleDragEnd}
       >
         {selectedImages.map((_, index) => (
+
           <div
             key={index}
             style={width > 900 ? imageContainerStyles : imageContainerMobileStyles}
@@ -129,7 +184,8 @@ const ImageUploader = ({ label, onChange }) => {
             draggable
           >
             <img
-              src={URL.createObjectURL(selectedImages[index])}
+              src={imageUrls[index]}
+              onError={(e) => console.error('Erro ao carregar imagem:', e)}
               alt={`Imagem ${index + 1}`}
               style={width > 900 ? imagePreviewStyles : imagePreviewMobileStyles} 
               onClick={() => console.log(`Clicou na miniatura ${index + 1}`)}

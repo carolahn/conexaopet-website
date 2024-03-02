@@ -6,9 +6,17 @@ import calendarIcon from '../assets/images/calendar.png';
 import calendarFilledIcon from '../assets/images/calendar-filled.png';
 import './NewPublicationHeader.css';
 
-const NewPublicationHeader = ({ closeModal, setSelectedTab }) => {
-  const [pawIconSrc, setPawIconSrc] = useState(pawFilledIcon);
+const NewPublicationHeader = ({ title, closeModal, setSelectedTab, selectedTab }) => {
+  const [pawIconSrc, setPawIconSrc] = useState(pawIcon);
   const [calendarIconSrc, setCalendarIconSrc] = useState(calendarIcon);
+
+  useEffect(() => {
+    if (selectedTab === 'pet') {
+      handleSelectPet();
+    } else {
+      handleSelectEvent();
+    }
+  });
 
   const handleSelectPet = () => {
     setPawIconSrc(pawFilledIcon);
@@ -17,8 +25,8 @@ const NewPublicationHeader = ({ closeModal, setSelectedTab }) => {
   };
 
   const handleSelectEvent = () => {
-    setPawIconSrc(pawIcon);
     setCalendarIconSrc(calendarFilledIcon);
+    setPawIconSrc(pawIcon);
     setSelectedTab('event');
   };
 
@@ -26,9 +34,9 @@ const NewPublicationHeader = ({ closeModal, setSelectedTab }) => {
     <div className='new-publication-header'>
       <div className='header-title'>
         <div className='close-icon-container' onClick={closeModal}>
-          <img src={closeIcon} alt='Buscar' className='close-icon' />
+          <img src={closeIcon} alt='Fechar' className='close-icon' />
         </div>
-        <h2>Nova publicação</h2>
+        <h2>{title}</h2>
       </div>
 
       <div className='menu-options-container'>

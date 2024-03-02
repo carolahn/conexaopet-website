@@ -5,7 +5,7 @@ import NewPetForm from './NewPetForm';
 import NewEventForm from './NewEventForm';
 
 
-const NewPublicationModal = ({ isModalOpen, closeModal }) => {
+const NewPublicationModal = ({ isModalOpen, closeModal, initialValues = null, isNewPublication = true }) => {
   const [selectedTab, setSelectedTab] = useState('pet');
   const [modalStyle, setModalStyle] = useState({
     overlay: {
@@ -57,14 +57,20 @@ const NewPublicationModal = ({ isModalOpen, closeModal }) => {
       onRequestClose={closeModal}
       contentLabel='User Modal'
       style={modalStyle}
+      appElement={document.getElementById('root')}
     >
-      <NewPublicationHeader closeModal={closeModal} setSelectedTab={setSelectedTab}/>
       {selectedTab === 'pet' && (
-        <NewPetForm />
+        <>
+          <NewPublicationHeader title={isNewPublication ? 'Nova publicação' : 'Editar publicação'} closeModal={closeModal} setSelectedTab={setSelectedTab} selectedTab={selectedTab}/>
+          <NewPetForm initialValues={isNewPublication ? null : initialValues} />
+        </>
       )}
 
       {selectedTab === 'event' && (
-        <NewEventForm />
+        <>
+          <NewPublicationHeader title='Novo evento' closeModal={closeModal} setSelectedTab={setSelectedTab} selectedTab={selectedTab}/>
+          <NewEventForm />
+        </>
       )}
 
     </Modal>
