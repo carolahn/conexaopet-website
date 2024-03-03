@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import isEqual from 'lodash/isEqual';
 
 const MultiSelect = ({ options, placeholder, attribute, onChange, initialValues=[] }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,11 +9,12 @@ const MultiSelect = ({ options, placeholder, attribute, onChange, initialValues=
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    if (initialValues) {
-      // Define os valores iniciais
-      setSelectedOptions(initialValues);
+    // Chama a função onChange passando os valores selecionados
+    // Adicionando verificação para evitar chamadas desnecessárias
+    if (!isEqual(initialValues, selectedOptions)) {
+      onChange(selectedOptions);
     }
-  }, [initialValues]);
+  }, [selectedOptions, onChange, initialValues]);
 
   const handleOptionChange = (id) => {
     setSelectedOptions((prevSelectedOptions) => {

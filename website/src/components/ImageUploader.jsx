@@ -146,7 +146,7 @@ const ImageUploader = ({ label, onChange, initialValues=[] }) => {
     border: '1px solid var(--color-secondary)',
     textAlign: 'center',
     textDecoration: 'none',
-    display: 'inline-block',
+    display: 'block',
     transition: 'background-color 0.3s ease',
     width: '100%',
   };
@@ -207,7 +207,9 @@ const containerStyles = {
 };
 
 const fileInputLabelStyles = {
+  display: 'block',
   cursor: 'pointer',
+  width: '100%',
   // marginBottom: '10px',
 };
 
