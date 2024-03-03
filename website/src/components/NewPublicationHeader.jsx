@@ -6,7 +6,7 @@ import calendarIcon from '../assets/images/calendar.png';
 import calendarFilledIcon from '../assets/images/calendar-filled.png';
 import './NewPublicationHeader.css';
 
-const NewPublicationHeader = ({ title, closeModal, setSelectedTab, selectedTab }) => {
+const NewPublicationHeader = ({ title, closeModal, setSelectedTab, selectedTab, showButtons = true }) => {
   const [pawIconSrc, setPawIconSrc] = useState(pawIcon);
   const [calendarIconSrc, setCalendarIconSrc] = useState(calendarIcon);
 
@@ -39,14 +39,16 @@ const NewPublicationHeader = ({ title, closeModal, setSelectedTab, selectedTab }
         <h2>{title}</h2>
       </div>
 
-      <div className='menu-options-container'>
-        <div className='paw-icon-container' onClick={handleSelectPet}>
-          <img src={pawIconSrc} alt='Novo animal' className='paw-icon' />
+      {showButtons && (
+        <div className='menu-options-container'>
+          <div className='paw-icon-container' onClick={handleSelectPet}>
+            <img src={pawIconSrc} alt='Novo animal' className='paw-icon' />
+          </div>
+          <div className='calendar-icon-container' onClick={handleSelectEvent}>
+            <img src={calendarIconSrc} alt='Novo evento' className='calendar-icon' />
+          </div>
         </div>
-        <div className='calendar-icon-container' onClick={handleSelectEvent}>
-          <img src={calendarIconSrc} alt='Novo evento' className='calendar-icon' />
-        </div>
-      </div>
+      )}
 
     </div>
   );

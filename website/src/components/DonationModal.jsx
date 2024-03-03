@@ -53,7 +53,7 @@ const DonationModal = ({ isModalOpen, closeModal, pix }) => {
     <Modal
       isOpen={isModalOpen}
       onRequestClose={closeModal}
-      contentLabel='User Modal'
+      contentLabel='Donation Modal'
       style={modalStyle}
     >
       <div className="modal-header" style={{ display: 'flex', justifyContent: 'end'}}>

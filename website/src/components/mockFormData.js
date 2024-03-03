@@ -215,6 +215,66 @@ export const mockUserTypeData = [
   { id: 3, tipo: 'Patrocinador'}
 ];
 
+export const mockMemberData = {
+  id: 3,
+  nome: 'Geraldo Membro',
+  nickname: 'geraldo',
+  celular: '41999998888',
+  cidade: 'Curitiba',
+  uf: 'PR',
+  senha: '123123',
+};
+
+export const mockSponsorData = {
+  id: 1,
+  nome: 'Cobase',
+  nickname: 'cobasi',
+  celular: '41999998888',
+  cidade: 'Curitiba',
+  uf: 'PR',
+  avatar: 'https://via.placeholder.com/300',
+  site: 'https://www.google.com',
+  senha: '123123',
+};
+
+export const mockCupomData = [
+  {
+    id: 1,
+    imagem: 'https://via.placeholder.com/300',
+    valor: 'BLACKNOV15',
+    validade: '2024-05-21 00:00', 
+    site: 'https://www.google.com',
+    patrocinador: {
+      id: 1,
+      avatar: 'https://via.placeholder.com/300',
+      nickname: 'cobasi'
+    },
+  },
+  {
+    id: 2,
+    imagem: 'https://via.placeholder.com/300',
+    valor: 'BLACKNOV15',
+    validade: '2024-05-21 00:00', 
+    site: 'https://www.google.com',
+    patrocinador: {
+      id: 1,
+      avatar: 'https://via.placeholder.com/300',
+      nickname: 'cobasi'
+    },
+  },
+  {
+    id: 3,
+    imagem: 'https://via.placeholder.com/300',
+    valor: 'BLACKNOV15',
+    validade: '2024-05-21 00:00', 
+    site: 'https://www.google.com',
+    patrocinador: {
+      id: 1,
+      avatar: 'https://via.placeholder.com/300',
+      nickname: 'cobasi'
+    },
+  },
+];
 
 export const mockBreedData = [
   { id: 1, raca: 'SRD' },

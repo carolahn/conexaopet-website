@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const DateTimePicker = ({ setDateHour }) => {
+const DateTimePicker = ({ setDateHour, showHour = true, dataLabel = '' }) => {
   const [selectedDate, setSelectedDate] = useState('');
   const [startTime, setStartTime] = useState('00:00');
   const [endTime, setEndTime] = useState('00:00');
@@ -35,23 +35,28 @@ const DateTimePicker = ({ setDateHour }) => {
   };
 
   const generateResultObject = () => {
-    if (selectedDate && startTime && endTime && !error) {
-      const formattedStartTime = formatDateTime(selectedDate, startTime);
-      const formattedEndTime = formatDateTime(selectedDate, endTime);
+    if (showHour) {
+      if (selectedDate && startTime && endTime && !error) {
+        const formattedStartTime = formatDateTime(selectedDate, startTime);
+        const formattedEndTime = formatDateTime(selectedDate, endTime);
+  
+        return {
+          dataHoraInicio: formattedStartTime,
+          dataHoraFim: formattedEndTime,
+        };
+      } else {
+        return null;
+      }
 
-      return {
-        dataHoraInicio: formattedStartTime,
-        dataHoraFim: formattedEndTime,
-      };
     } else {
-      return null;
+      return selectedDate;
     }
   };
 
   return (
     <div className='date-picker'>
       <div className='date-container'>
-        <label className='date-label' htmlFor="selectedDate">Data</label>
+        <label className='date-label' htmlFor="selectedDate">{dataLabel ? dataLabel : 'Data'}</label>
         <input
           type="date"
           id="selectedDate"
@@ -60,34 +65,39 @@ const DateTimePicker = ({ setDateHour }) => {
         />
       </div>
 
-      <div className='time-container'>
-        <div className='hour-initial-label'>
-          <label htmlFor="selectedDate">Hora inicial:</label>
-        </div>
-        <div className='hour-container'>
-          <div className='initial-hour'>
-            <input
-              type="time"
-              id="startTime"
-              value={startTime}
-              onChange={handleStartTimeChange}
-            />
+      {showHour && (
+        <>
+          <div className='time-container'>
+            <div className='hour-initial-label'>
+              <label htmlFor="selectedDate">Hora inicial:</label>
+            </div>
+            <div className='hour-container'>
+              <div className='initial-hour'>
+                <input
+                  type="time"
+                  id="startTime"
+                  value={startTime}
+                  onChange={handleStartTimeChange}
+                />
+              </div>
+              <div className='hour-end-label'>
+                <label htmlFor="endTime">final:</label>
+              </div>
+              <div className='end-hour'>
+                <input
+                  type="time"
+                  id="endTime"
+                  value={endTime}
+                  onChange={handleEndTimeChange}
+                />
+              </div>
+            </div>
           </div>
-          <div className='hour-end-label'>
-            <label htmlFor="endTime">final:</label>
-          </div>
-          <div className='end-hour'>
-            <input
-              type="time"
-              id="endTime"
-              value={endTime}
-              onChange={handleEndTimeChange}
-            />
-          </div>
-        </div>
-      </div>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+        </>
+      )}
+
 
       <style>
         {`

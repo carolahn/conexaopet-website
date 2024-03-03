@@ -17,7 +17,7 @@ import EditProtectorModal from './EditProtectorModal';
 const ProtectorCardDashboard = ({ protector, setSelectedTab }) => {
   const [pawIconSrc, setPawIconSrc] = useState(pawFilledIcon);
   const [calendarIconSrc, setCalendarIconSrc] = useState(calendarIcon);
-  const [pluIconSrc, setPluIconSrc] = useState(plusIcon);
+  const [plusIconSrc, setplusIconSrc] = useState(plusIcon);
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
   const [isNewPublicationModalOpen, setIsNewPublicationModalOpen] = useState(false);
   const [isEditProtectorModalOpen, setIsEditProtectorModalOpen] = useState(false);
@@ -97,7 +97,7 @@ const ProtectorCardDashboard = ({ protector, setSelectedTab }) => {
           <img src={calendarIconSrc} alt='Próximos eventos' className='calendar-icon' />
         </div>
         <div className='plus-icon-container' onClick={openNewPublicationModal}>
-          <img src={pluIconSrc} alt='Nova publicação' className='plus-icon' />
+          <img src={plusIconSrc} alt='Nova publicação' className='plus-icon' />
         </div>
       </div>
     

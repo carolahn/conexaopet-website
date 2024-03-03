@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SimpleHeader from '../components/SimpleHeader';
 import ImageUploader from '../components/ImageUploader';
+import Toast from '../components/Toast';
 import { mockUserTypeData } from '../components/mockFormData';
 
 const Signup = () => {
@@ -14,6 +15,7 @@ const Signup = () => {
   const [images, setImages] = useState([]);
   const [pix, setPix] = useState([]);
   const [site, setSite] = useState([]);
+  const [showToast, setShowToast] = useState(false);
 
   const handleImagesChange = (selectedImages) => {
     setImages(selectedImages);
@@ -37,13 +39,22 @@ const Signup = () => {
 
     const jsonData = JSON.stringify(formData);
     console.log(jsonData);
+    handleOpenToast();
   
+  };
+
+  const handleOpenToast = () => {
+    setShowToast(true);
+  };
+
+  const handleCloseToast = () => {
+    setShowToast(false);
   };
 
 
   return (
     <div className='sign-up-container'>
-        <SimpleHeader title='Cadastrar' />
+      <SimpleHeader title='Cadastrar' />
       <div className='signup-body'>
         { (userType === '2' || userType === '3') && (
           <ImageUploader label='Selecione o avatar' onChange={handleImagesChange}/>
@@ -145,15 +156,17 @@ const Signup = () => {
 
           <button type="submit" className="btn w-100 btn-publish">Cadastrar</button>
         </form>
-
-
       </div>
+
+      {showToast && (
+        <Toast message='Cadastro realizado com sucesso' type='success' onClose={handleCloseToast} />
+
+      )}
 
       <style>
         {`
           .signup-container {
             width: 100%;
-            
           }
           
           .signup-body {
