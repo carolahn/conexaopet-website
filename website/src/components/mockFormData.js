@@ -43,6 +43,12 @@ export const mockSizeData = [
   },
 ];
 
+export const mockAgeData = [
+  { id: 1, idade: 'filhote'},
+  { id: 2, idade: 'adulto'},
+  { id: 3, idade: 'idoso'},
+];
+
 export const mockProtectorData = [
   {
     id: 1,
@@ -176,6 +182,7 @@ export const mockPetData = [
 
 export const mockAddressData = [
   {
+    id: 1,
     nome: 'Casa',
     rua: 'Rua A',
     numero: '123',
@@ -184,7 +191,8 @@ export const mockAddressData = [
     uf: 'Estado Z',
   },
   {
-    nome: 'Casa 2',
+    id: 2,
+    nome: 'Cobasi Linha Verde',
     rua: 'Rua A2',
     numero: '123',
     bairro: 'Bairro X2',
@@ -192,6 +200,7 @@ export const mockAddressData = [
     uf: 'Estado Z',
   },
   {
+    id: 3,
     nome: 'Trabalho',
     rua: 'Avenida B',
     numero: '456',
@@ -200,6 +209,7 @@ export const mockAddressData = [
     uf: 'Estado X',
   },
   {
+    id: 4,
     nome: 'Fazenda',
     rua: 'Estrada C',
     numero: '789',

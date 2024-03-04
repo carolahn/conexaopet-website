@@ -1,26 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
+import NewPublicationHeader from './NewPublicationHeader';
+import NewPetForm from './NewPetForm';
+import NewEventForm from './NewEventForm';
+import SearchPetForm from './SearchPetForm';
+import SearchEventForm from './SearchEventForm';
 
 const SearchModal = ({ isModalOpen, closeModal }) => {
+  const [selectedTab, setSelectedTab] = useState('pet');
   const [modalStyle, setModalStyle] = useState({
     content: {
-        inset: '50px calc((100% - 900px)/2) auto auto',
-        width: '200px',
+      inset: '0 calc((100% - 532px)/2)',
+      maxWidth: '532px',
+      height: '100vh',
     },
   });
 
   useEffect(() => {
     const handleResize = () => {
       
-      const newStyle = window.innerWidth < 900
-        ? { content: { 
-            inset: '40px 0 auto auto',
-            width: '200px',
-         } }
-        : { content: { 
-            inset: '50px calc((100% - 900px)/2) auto auto',
-            width: '200px',
-         } };
+      const newStyle = window.innerWidth < 900? 
+      {
+        overlay: {
+          zIndex: 3,
+        },
+        content: { 
+          inset: '0 0',
+          width: 'calc(100% - 40px)',
+      }} : {        
+        overlay: {
+          zIndex: 3,
+        },
+        content: { 
+          inset: '0 calc((100% - 532px)/2)',
+          maxWidth: '532px',
+          paddingTop: '7px',
+      }};
 
       setModalStyle(newStyle);
     };
@@ -41,8 +56,19 @@ const SearchModal = ({ isModalOpen, closeModal }) => {
       contentLabel='User Modal'
       style={modalStyle}
     >
-      <h2>Opções da Busca</h2>
-      <button onClick={closeModal}>Fechar</button>
+      {selectedTab === 'pet' && (
+        <>
+          <NewPublicationHeader title='Buscar pet' closeModal={closeModal} setSelectedTab={setSelectedTab} selectedTab={selectedTab}/>
+          <SearchPetForm />
+        </>
+      )}
+
+      {selectedTab === 'event' && (
+        <>
+          <NewPublicationHeader title='Buscar evento' closeModal={closeModal} setSelectedTab={setSelectedTab} selectedTab={selectedTab}/>
+          <SearchEventForm />
+        </>
+      )}
     </Modal>
   );
 };
